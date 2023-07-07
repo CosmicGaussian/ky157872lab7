@@ -1,35 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void bubbleSort(int arr[], int n){
-    int i,j;
-    int temp, swaps;
 
-    for(i = 0; i< n-1; i++){
-        //initialize count of swaps
-        swaps = 0;
+void bubbleSort(int arr[], int n) {
+    int i, j, temp, swaps;
+    
+    for (i = 0; i < n - 1; i++) {
+        swaps = 0; // Initialize swaps counter for each pass
         
-        for(j = 0; j < n-i-1; j++){
-            if(arr[j] < arr[j+1]){
-                //swap of elements
+        for (j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap elements
                 temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                
                 swaps++;
             }
         }
+        
         printf("Swaps needed for index %d: %d\n", i, swaps);
-
     }
 }
 
-int main(){
-    int arr[] = {97,16,45,63,13,22,7,58,72};
-
-    int n = sizeof(arr)/sizeof(arr[0]);
-
-    bubbleSort(arr,n);
-
+int main() {
+    int arr[] = {97, 16, 45, 63, 13, 22, 7, 58, 72};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    
+    bubbleSort(arr, n);
+    
     return 0;
 }
